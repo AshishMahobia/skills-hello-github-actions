@@ -1,6 +1,18 @@
-name: Post welcome comment
+name: Welcome Workflow
+
 on:
+  push:
+    branches:
+      - welcome-workflow
   pull_request:
     types: [opened]
+
 permissions:
   pull-requests: write
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Hello
+        run: echo "Hello, GitHub Actions!"
